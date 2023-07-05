@@ -20,13 +20,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //motor de plantillas
 app.set("view engine", "ejs");
-app.set("views", "./src/views");
+app.set("views", "./views");
 app.use(express.static("public"));
 
 //requiriendo config donde esta nuestra base de datos
 const { db_connection } = require("./config/db");
 //conexion a la base de datos
 db_connection();
+
+//requiriendo rutas
+const router = require("./routes/reserva.routes");
+app.use("/api/reservas", router);
 
 // TODO: Si la petición no coincide con ninguna de las rutas declaradas, mostrar error 404
 

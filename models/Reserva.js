@@ -25,6 +25,10 @@ const Reserva = sequelize.define(
         fechaSolicitada: {
             type: DataTypes.DATE,
             allowNull: false,
+        },
+        costoViaje: {
+            type: DataTypes.FLOAT,
+            allowNull: false,
         }
     }
 )
